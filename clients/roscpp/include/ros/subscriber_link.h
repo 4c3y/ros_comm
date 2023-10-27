@@ -64,7 +64,7 @@ public:
   const std::string& getTopic() const { return topic_; }
   const Stats &getStats() { return stats_; }
   const std::string &getDestinationCallerID() const { return destination_caller_id_; }
-  int getConnectionID() const { return connection_id_; }
+  std::uint32_t getConnectionID() const { return connection_id_; }
 
   /**
    * \brief Queue up a message for publication.  Throws out old messages if we've reached our Publication's max queue size
@@ -87,7 +87,7 @@ protected:
   bool verifyDatatype(const std::string &datatype);
 
   PublicationWPtr parent_;
-  unsigned int connection_id_;
+  std::uint32_t connection_id_;
   std::string destination_caller_id_;
   Stats stats_;
   std::string topic_;

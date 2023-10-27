@@ -278,7 +278,7 @@ XmlRpc::XmlRpcValue Publication::getStats()
        c != subscriber_links_.end(); ++c, cidx++)
   {
     const SubscriberLink::Stats& s = (*c)->getStats();
-    conn_data[cidx][0] = (*c)->getConnectionID();
+    conn_data[cidx][0] = (int)(*c)->getConnectionID();
     // todo: figure out what to do here... the bytes_sent will wrap around
     // on some flows within a reasonable amount of time. xmlrpc++ doesn't
     // seem to give me a nice way to do 64-bit ints, perhaps that's a
